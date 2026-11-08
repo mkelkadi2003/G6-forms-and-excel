@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="-150 -150 300 300" role="img" aria-label="Al-Bassam Schools emblem">
+  <defs>
+    <linearGradient id="be-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbe3aa"/><stop offset="0.45" stop-color="#e8b85f"/><stop offset="1" stop-color="#c98b34"/>
+    </linearGradient>
+    <linearGradient id="be-paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2cf"/><stop offset="1" stop-color="#e2b264"/>
+    </linearGradient>
+    <linearGradient id="be-pencil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7b13c"/><stop offset="0.5" stop-color="#ffa41f"/><stop offset="1" stop-color="#e87916"/>
+    </linearGradient>
+    <radialGradient id="be-globe" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#6e58c4"/><stop offset="0.55" stop-color="#3a2494"/><stop offset="1" stop-color="#181050"/>
+    </radialGradient>
+  </defs>
+  <circle r="128" fill="#ffffff"/>
+  <circle r="110" fill="none" stroke="#1b1550" stroke-width="15"/>
+  <path d="M -122 -44 C -104 -112 -22 -146 52 -130" fill="none" stroke="#1b1550" stroke-width="9" stroke-linecap="round"/>
+  <path d="M 122 48 C 100 116 18 146 -56 128" fill="none" stroke="#1b1550" stroke-width="9" stroke-linecap="round"/>
+  <path d="M -32 -82 Q 12 -122 62 -102 L 38 -66 Q 4 -84 -30 -56 Z" fill="url(#be-paper)" stroke="#c9a25c" stroke-width="2"/>
+  <path d="M -24 -76 Q 12 -108 52 -96" fill="none" stroke="#b8893d" stroke-width="2"/>
+  <path d="M -18 -68 Q 12 -96 46 -88" fill="none" stroke="#b8893d" stroke-width="2"/>
+  <text x="-44" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="182" font-weight="bold" fill="url(#be-gold)" stroke="#a9772c" stroke-width="1.2">B</text>
+  <g transform="rotate(27)">
+    <rect x="-15" y="-122" width="30" height="206" rx="4" fill="url(#be-pencil)" stroke="#b96612" stroke-width="2"/>
+    <rect x="-15" y="-134" width="30" height="16" rx="3" fill="#df3b2c" stroke="#b02a20" stroke-width="1.5"/>
+    <rect x="-15" y="-118" width="30" height="7" fill="#b9b9c9"/>
+    <path d="M -15 84 L 15 84 L 0 120 Z" fill="#f2d6a0" stroke="#b96612" stroke-width="2"/>
+    <path d="M -5 104 L 5 104 L 0 120 Z" fill="#35353f"/>
+    <rect x="-9" y="-108" width="5" height="186" fill="#ffffff" opacity="0.28"/>
+  </g>
+  <circle cx="52" cy="-26" r="25" fill="url(#be-globe)"/>
+  <ellipse cx="52" cy="-26" rx="36" ry="10" transform="rotate(-18 52 -26)" fill="none" stroke="#e62034" stroke-width="4"/>
+  <path d="M 84 -40 l 9 -2 l -4 8" fill="none" stroke="#e62034" stroke-width="4" stroke-linecap="round"/>
+  <path d="M -68 76 C -16 38 14 42 38 64 C 58 82 20 104 -6 98 C -42 90 -58 120 -26 138" fill="none" stroke="#1b1550" stroke-width="11" stroke-linecap="round"/>
+</svg>

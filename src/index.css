@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Cairo:wght@600;700;800&family=Nunito:wght@500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Baloo 2", "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --color-space-950: #060a1f;
+  --color-space-900: #0b1033;
+  --color-space-800: #141a4a;
+  --color-neon-cyan: #22e5ff;
+  --color-neon-pink: #ff4fd8;
+  --color-neon-lime: #a3ff3c;
+  --color-neon-gold: #ffd54a;
+  --color-neon-purple: #a66bff;
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #060a1f;
+  color: #f1f5ff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* --- Glow helpers --- */
+.text-glow-cyan { text-shadow: 0 0 12px rgba(34, 229, 255, 0.8), 0 0 32px rgba(34, 229, 255, 0.4); }
+.text-glow-pink { text-shadow: 0 0 12px rgba(255, 79, 216, 0.8), 0 0 32px rgba(255, 79, 216, 0.4); }
+.text-glow-gold { text-shadow: 0 0 12px rgba(255, 213, 74, 0.9), 0 0 32px rgba(255, 213, 74, 0.5); }
+.text-glow-red { text-shadow: 0 0 12px rgba(255, 60, 60, 0.9), 0 0 32px rgba(255, 60, 60, 0.5); }
+
+.glass {
+  background: rgba(20, 26, 74, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* --- Animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 18px rgba(34, 229, 255, 0.5), 0 0 40px rgba(34, 229, 255, 0.2); }
+  50% { box-shadow: 0 0 32px rgba(34, 229, 255, 0.9), 0 0 70px rgba(34, 229, 255, 0.4); }
+}
+@keyframes alarm-flash {
+  0%, 100% { background-color: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.5); }
+  50% { background-color: rgba(239, 68, 68, 0.45); border-color: rgba(255, 120, 120, 1); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes pop-in {
+  0% { transform: scale(0.4); opacity: 0; }
+  70% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-alarm { animation: alarm-flash 0.8s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 2.4s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 18s linear infinite; }
+.animate-wiggle { animation: wiggle 1.2s ease-in-out infinite; }
+.animate-pop { animation: pop-in 0.5s cubic-bezier(.2,1.4,.4,1) both; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #22e5ff, #ff4fd8, #ffd54a, #22e5ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(34, 229, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 229, 255, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 3s linear infinite;
+}
+
+/* Hide number input spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0b1033; }
+::-webkit-scrollbar-thumb { background: #3b4a9a; border-radius: 10px; }
+
+/* --- Printing certificates --- */
+@media print {
+  body { background: white !important; }
+  body * { visibility: hidden !important; }
+  .print-area, .print-area * { visibility: visible !important; }
+  .print-area {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .no-print { display: none !important; }
+  @page { size: landscape; margin: 10mm; }
+}

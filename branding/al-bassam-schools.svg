@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="300" viewBox="0 0 1400 300" role="img" aria-label="Al-Bassam Schools - مدارس البسام">
+  <defs>
+    <linearGradient id="bs-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbe3aa"/><stop offset="0.45" stop-color="#e8b85f"/><stop offset="1" stop-color="#c98b34"/>
+    </linearGradient>
+    <linearGradient id="bs-paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2cf"/><stop offset="1" stop-color="#e2b264"/>
+    </linearGradient>
+    <linearGradient id="bs-pencil" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7b13c"/><stop offset="0.5" stop-color="#ffa41f"/><stop offset="1" stop-color="#e87916"/>
+    </linearGradient>
+    <radialGradient id="bs-globe" cx="0.35" cy="0.3" r="0.8">
+      <stop offset="0" stop-color="#6e58c4"/><stop offset="0.55" stop-color="#3a2494"/><stop offset="1" stop-color="#181050"/>
+    </radialGradient>
+    <g id="bs-emblem-shape">
+      <circle r="128" fill="#ffffff"/>
+      <circle r="110" fill="none" stroke="#1b1550" stroke-width="15"/>
+      <path d="M -122 -44 C -104 -112 -22 -146 52 -130" fill="none" stroke="#1b1550" stroke-width="9" stroke-linecap="round"/>
+      <path d="M 122 48 C 100 116 18 146 -56 128" fill="none" stroke="#1b1550" stroke-width="9" stroke-linecap="round"/>
+      <path d="M -32 -82 Q 12 -122 62 -102 L 38 -66 Q 4 -84 -30 -56 Z" fill="url(#bs-paper)" stroke="#c9a25c" stroke-width="2"/>
+      <path d="M -24 -76 Q 12 -108 52 -96" fill="none" stroke="#b8893d" stroke-width="2"/>
+      <path d="M -18 -68 Q 12 -96 46 -88" fill="none" stroke="#b8893d" stroke-width="2"/>
+      <text x="-44" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="182" font-weight="bold" fill="url(#bs-gold)" stroke="#a9772c" stroke-width="1.2">B</text>
+      <g transform="rotate(27)">
+        <rect x="-15" y="-122" width="30" height="206" rx="4" fill="url(#bs-pencil)" stroke="#b96612" stroke-width="2"/>
+        <rect x="-15" y="-134" width="30" height="16" rx="3" fill="#df3b2c" stroke="#b02a20" stroke-width="1.5"/>
+        <rect x="-15" y="-118" width="30" height="7" fill="#b9b9c9"/>
+        <path d="M -15 84 L 15 84 L 0 120 Z" fill="#f2d6a0" stroke="#b96612" stroke-width="2"/>
+        <path d="M -5 104 L 5 104 L 0 120 Z" fill="#35353f"/>
+        <rect x="-9" y="-108" width="5" height="186" fill="#ffffff" opacity="0.28"/>
+      </g>
+      <circle cx="52" cy="-26" r="25" fill="url(#bs-globe)"/>
+      <ellipse cx="52" cy="-26" rx="36" ry="10" transform="rotate(-18 52 -26)" fill="none" stroke="#e62034" stroke-width="4"/>
+      <path d="M 84 -40 l 9 -2 l -4 8" fill="none" stroke="#e62034" stroke-width="4" stroke-linecap="round"/>
+      <path d="M -68 76 C -16 38 14 42 38 64 C 58 82 20 104 -6 98 C -42 90 -58 120 -26 138" fill="none" stroke="#1b1550" stroke-width="11" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect x="0" y="0" width="1400" height="300" rx="28" fill="#ffffff"/>
+
+  <!-- English wordmark -->
+  <g transform="translate(12,18) scale(0.72)">
+    <text x="30" y="182" font-family="'Baloo 2','Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif" font-size="76" font-weight="800" fill="#191650">Al-</text>
+    <path d="M 132 96 Q 170 62 216 84 L 194 116 Q 164 100 132 124 Z" fill="url(#bs-paper)" stroke="#c9a25c" stroke-width="2"/>
+    <text x="126" y="188" font-family="Georgia,'Times New Roman',serif" font-size="104" font-weight="bold" fill="url(#bs-gold)" stroke="#a9772c" stroke-width="1.2">B</text>
+    <text x="198" y="182" font-family="'Baloo 2','Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif" font-size="74" font-weight="800" fill="#191650">assam</text>
+    <path d="M 438 176 C 410 158 398 132 422 116 C 448 98 476 116 466 138 C 456 160 420 166 396 184 C 372 202 372 224 400 230" fill="none" stroke="#191650" stroke-width="12" stroke-linecap="round"/>
+    <text x="474" y="182" font-family="'Baloo 2','Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif" font-size="74" font-weight="800" fill="#191650">chools</text>
+    <g transform="translate(166,158) rotate(27) scale(0.56)">
+      <rect x="-15" y="-122" width="30" height="206" rx="4" fill="url(#bs-pencil)" stroke="#b96612" stroke-width="2"/>
+      <rect x="-15" y="-134" width="30" height="16" rx="3" fill="#df3b2c"/>
+      <path d="M -15 84 L 15 84 L 0 120 Z" fill="#f2d6a0" stroke="#b96612" stroke-width="2"/>
+      <path d="M -5 104 L 5 104 L 0 120 Z" fill="#35353f"/>
+    </g>
+    <circle cx="650" cy="102" r="18" fill="url(#bs-globe)"/>
+    <ellipse cx="650" cy="102" rx="27" ry="7" transform="rotate(-18 650 102)" fill="none" stroke="#e62034" stroke-width="3"/>
+  </g>
+
+  <!-- Central round emblem -->
+  <g transform="translate(710,150) scale(0.86)">
+    <use href="#bs-emblem-shape"/>
+  </g>
+
+  <!-- Arabic wordmark -->
+  <g>
+    <text x="1360" y="196" text-anchor="end" direction="rtl" xml:lang="ar" textLength="380" lengthAdjust="spacingAndGlyphs" font-family="'Cairo','Noto Naskh Arabic','Segoe UI',Arial,sans-serif" font-size="68" font-weight="700" fill="#191650">مدارس البسام</text>
+    <circle cx="1340" cy="98" r="17" fill="url(#bs-globe)"/>
+    <ellipse cx="1340" cy="98" rx="26" ry="7" transform="rotate(-18 1340 98)" fill="none" stroke="#e62034" stroke-width="3"/>
+    <path d="M 866 150 Q 890 118 918 140 L 904 158 Q 888 146 866 166 Z" fill="url(#bs-paper)" stroke="#c9a25c" stroke-width="1.5"/>
+    <text x="868" y="192" font-family="Georgia,'Times New Roman',serif" font-size="60" font-weight="bold" fill="url(#bs-gold)">B</text>
+  </g>
+</svg>
