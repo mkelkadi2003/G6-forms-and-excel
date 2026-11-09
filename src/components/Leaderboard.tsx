@@ -103,7 +103,7 @@ export const Leaderboard: React.FC<Props> = ({ teams, onScore, onAwards, canAwar
         <GlowButton variant={editing ? "ghost" : "purple"} size="lg" onClick={() => setEditing((e) => !e)}>
           {editing ? "✔ Done Editing" : "✏️ Edit All Scores"}
         </GlowButton>
-        <GlowButton variant="gold" size="lg" className={canAward ? "animate-pulse-glow" : ""} sound="fanfare" onClick={onAwards}>
+        <GlowButton variant="gold" size="lg" className={canAward ? "animate-pulse-glow" : ""} sound="click" onClick={onAwards}>
           🎉 Start the Award Ceremony
         </GlowButton>
       </div>

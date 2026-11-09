@@ -1,4 +1,4 @@
-import type { Category, CategoryId, Team, TeamColor, Visitor } from "./types";
+import type { Category, CategoryId, SheetState, Team, TeamColor, Visitor } from "./types";
 
 export const CATEGORIES: Category[] = [
   { id: "bestForm", label: "Best Microsoft Form", max: 20, emoji: "📝", mission: 1, hint: "Does the form work well and have all 4 question types?" },
@@ -63,11 +63,11 @@ export const MISSION1_TASKS = [
 ];
 
 export const MISSION2_TASKS = [
-  { title: "Enter the Budget Data", emoji: "⌨️", detail: "Open Excel. Type the headings Item, Quantity, Unit Price, Total. Enter the 4 items below.", xp: 10 },
+  { title: "Enter the Budget Data", emoji: "⌨️", detail: "Open Microsoft Excel — or use the practice spreadsheet right here on this page. Type the headings Item, Quantity, Unit Price, Total in row 1, then enter the 4 items.", xp: 10 },
   { title: "Multiply for Each Total", emoji: "✖️", detail: "In the Total column type a formula like =B2*C2 and press Enter. Fill it down for every item.", xp: 20 },
   { title: "Use SUM for the Grand Total", emoji: "➕", detail: "Under the Total column type =SUM(D2:D5) to add everything together.", xp: 15 },
-  { title: "Format the Spreadsheet", emoji: "🖌️", detail: "Add borders, fill colours for the headings, and change the money cells to Currency format.", xp: 10 },
-  { title: "Create a Chart", emoji: "📊", detail: "Select the Item and Total columns → Insert → Column Chart or Pie Chart. Add a title!", xp: 15 },
+  { title: "Format the Spreadsheet", emoji: "🖌️", detail: "Use the toolbar: turn on Borders, add fill colours to the headings, and press the $ button to format money cells as Currency.", xp: 10 },
+  { title: "Create a Chart", emoji: "📊", detail: "In real Excel use Insert → Chart. On this page press the Chart button to make a Column or Pie chart and give it a title!", xp: 15 },
 ];
 
 export const BUDGET_ITEMS = [
@@ -76,6 +76,17 @@ export const BUDGET_ITEMS = [
   { item: "Decorations", qty: 4, price: 15, emoji: "🎈" },
   { item: "Snacks", qty: 20, price: 3, emoji: "🍪" },
 ];
+
+/** Blank worksheet – students type everything themselves. */
+export const createEmptySheet = (): SheetState => ({
+  cells: {},
+  bold: [],
+  fills: {},
+  currency: [],
+  borders: false,
+  chart: "none",
+  chartTitle: "Tech Fair Budget",
+});
 
 export const emptyScores = (): Record<CategoryId, number> => ({
   bestForm: 0,

@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import excelImg from "../assets/mission-excel.png";
-import type { CategoryId, Team } from "../types";
+import type { CategoryId, SheetState, Team } from "../types";
 import { BUDGET_ITEMS, CATEGORIES, MISSION2_TASKS } from "../data";
+import { useGate } from "../GateContext";
 import { playSound } from "../sound";
 import { Badge, Card, GlowButton } from "./ui";
 import { TaskTracker } from "./TaskTracker";
 import { ScorePanel } from "./ScorePanel";
+import { Spreadsheet } from "./Spreadsheet";
 
 interface Props {
   teams: Team[];
+  sheets: Record<string, SheetState>;
+  onSheetChange: (teamId: string, sheet: SheetState) => void;
   budgetEmergency: boolean;
   onToggleTask: (teamId: string, index: number) => void;
   onScore: (teamId: string, cat: CategoryId, value: number) => void;
@@ -22,16 +26,26 @@ const M2_CATEGORIES = CATEGORIES.filter((c) => c.mission === 2 || c.mission === 
 const COLOR = "#ffd54a";
 const grandTotal = BUDGET_ITEMS.reduce((s, b) => s + b.qty * b.price, 0);
 
-export const MissionTwo: React.FC<Props> = ({ teams, budgetEmergency, onToggleTask, onScore, onTriggerEmergency, onComplete, isComplete }) => {
+export const MissionTwo: React.FC<Props> = ({ teams, sheets, onSheetChange, budgetEmergency, onToggleTask, onScore, onTriggerEmergency, onComplete, isComplete }) => {
   const [openTask, setOpenTask] = useState<number | null>(0);
   const [showAnswers, setShowAnswers] = useState(false);
   const [showAlertModal, setShowAlertModal] = useState(false);
+  const { requestStep } = useGate();
   const allDone = teams.every((t) => t.m2Tasks.every(Boolean));
 
-  const triggerEmergency = () => {
-    playSound("alarm");
-    setShowAlertModal(true);
-    onTriggerEmergency();
+  const triggerEmergency = () =>
+    requestStep("Launch the Budget Emergency", () => {
+      playSound("alarm");
+      setShowAlertModal(true);
+      onTriggerEmergency();
+    });
+
+  const toggleAnswers = () => {
+    if (showAnswers) {
+      setShowAnswers(false);
+      return;
+    }
+    requestStep("Show the Excel answer key", () => setShowAnswers(true));
   };
 
   const col = ["A", "B", "C", "D"];
@@ -65,9 +79,9 @@ export const MissionTwo: React.FC<Props> = ({ teams, budgetEmergency, onToggleTa
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div>
             <h3 className="text-3xl font-display font-extrabold">💰 The Tech Fair Budget</h3>
-            <p className="text-white/70 font-bold">Type this data into Excel exactly like this. Then calculate the totals!</p>
+            <p className="text-white/70 font-bold">Reference data (read-only) — copy it into the practice spreadsheet below, or into Microsoft Excel. Then calculate the totals!</p>
           </div>
-          <GlowButton variant={showAnswers ? "ghost" : "gold"} size="sm" onClick={() => setShowAnswers((s) => !s)}>
+          <GlowButton variant={showAnswers ? "ghost" : "gold"} size="sm" onClick={toggleAnswers}>
             {showAnswers ? "🙈 Hide Answer Key" : "🔑 Teacher: Show Answer Key"}
           </GlowButton>
         </div>
@@ -153,6 +167,20 @@ export const MissionTwo: React.FC<Props> = ({ teams, budgetEmergency, onToggleTa
           </div>
         </div>
       </Card>
+
+      {/* In-website Excel practice grid */}
+      <section className="space-y-4">
+        <div className="text-center space-y-2">
+          <div className="text-neon-lime font-extrabold uppercase tracking-[0.3em] text-sm">Write it right here</div>
+          <h3 className="text-3xl md:text-4xl font-display font-extrabold text-white">💻 In-Website Excel Practice Sheet</h3>
+          <p className="text-white/75 font-bold max-w-3xl mx-auto">
+            Each team has its own worksheet. Click a cell, type the data, then try real formulas like{" "}
+            <code className="bg-black/40 px-2 py-0.5 rounded text-lime-200">=B2*C2</code> and{" "}
+            <code className="bg-black/40 px-2 py-0.5 rounded text-lime-200">=SUM(D2:D5)</code>. Everything is saved automatically!
+          </p>
+        </div>
+        <Spreadsheet teams={teams} sheets={sheets} onSheetChange={onSheetChange} onScore={onScore} budgetEmergency={budgetEmergency} />
+      </section>
 
       {/* Task list */}
       <section className="space-y-4">
@@ -249,7 +277,7 @@ export const MissionTwo: React.FC<Props> = ({ teams, budgetEmergency, onToggleTa
 
       <div className="text-center space-y-3 pb-8">
         {!allDone && <p className="text-white/60 font-bold">Tick every task for every team when they finish.</p>}
-        <GlowButton size="xl" variant={allDone ? "lime" : "gold"} className={allDone ? "animate-pulse-glow" : ""} sound="success" onClick={onComplete}>
+        <GlowButton size="xl" variant={allDone ? "lime" : "gold"} className={allDone ? "animate-pulse-glow" : ""} sound="click" onClick={onComplete}>
           {isComplete ? "🔁 Replay Success Screen" : "🏁 Complete Mission 2"}
         </GlowButton>
       </div>

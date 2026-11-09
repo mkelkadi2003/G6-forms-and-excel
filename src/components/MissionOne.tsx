@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import formsImg from "../assets/mission-forms.png";
 import type { CategoryId, Team, VisitorId } from "../types";
 import { CATEGORIES, MISSION1_TASKS, VISITORS } from "../data";
+import { useGate } from "../GateContext";
 import { playSound } from "../sound";
 import { Badge, Card, GlowButton } from "./ui";
 import { TaskTracker } from "./TaskTracker";
@@ -24,9 +25,10 @@ export const MissionOne: React.FC<Props> = ({ teams, onToggleTask, onScore, onAs
   const [openTask, setOpenTask] = useState<number | null>(0);
   const [spinning, setSpinning] = useState(false);
   const [spinFace, setSpinFace] = useState(0);
+  const { requestStep } = useGate();
   const allDone = teams.every((t) => t.m1Tasks.every(Boolean));
 
-  const spinVisitors = () => {
+  const runSpin = () => {
     if (spinning) return;
     setSpinning(true);
     playSound("whoosh");
@@ -53,6 +55,8 @@ export const MissionOne: React.FC<Props> = ({ teams, onToggleTask, onScore, onAs
       }
     }, 110);
   };
+
+  const spinVisitors = () => requestStep("Reveal the Secret Visitor identities", runSpin);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
@@ -240,7 +244,7 @@ export const MissionOne: React.FC<Props> = ({ teams, onToggleTask, onScore, onAs
 
       <div className="text-center space-y-3 pb-8">
         {!allDone && <p className="text-white/60 font-bold">Tick every task for every team, or finish early if you're the teacher boss 😉</p>}
-        <GlowButton size="xl" variant={allDone ? "lime" : "gold"} className={allDone ? "animate-pulse-glow" : ""} sound="success" onClick={onComplete}>
+        <GlowButton size="xl" variant={allDone ? "lime" : "gold"} className={allDone ? "animate-pulse-glow" : ""} sound="click" onClick={onComplete}>
           {isComplete ? "🔁 Replay Success Screen" : "🏁 Complete Mission 1"}
         </GlowButton>
       </div>

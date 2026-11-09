@@ -104,6 +104,7 @@ export const IntroScreen: React.FC<Props> = ({ onStart, muted, toggleMute }) => 
             >
               ⚡ POWER ON
             </GlowButton>
+            <p className="text-yellow-200/80 text-sm font-bold">🔒 Teacher password required to move to each next step</p>
             <p className="text-white/40 text-sm">Teacher tip: press F11 for full screen on the projector</p>
           </motion.div>
         )}
@@ -192,7 +193,7 @@ export const IntroScreen: React.FC<Props> = ({ onStart, muted, toggleMute }) => 
                   </GlowButton>
                 ) : (
                   <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200 }}>
-                    <GlowButton size="xl" variant="lime" className="animate-pulse-glow" sound="unlock" onClick={onStart}>
+                    <GlowButton size="xl" variant="lime" className="animate-pulse-glow" sound="click" onClick={onStart}>
                       🚀 START MISSION
                     </GlowButton>
                   </motion.div>

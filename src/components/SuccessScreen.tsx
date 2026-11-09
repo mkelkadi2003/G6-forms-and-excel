@@ -75,14 +75,14 @@ export const SuccessScreen: React.FC<Props> = ({ mission, onContinue }) => {
               </div>
             </div>
             <div>
-              <GlowButton size="xl" variant="gold" className="animate-pulse-glow" sound="whoosh" onClick={onContinue}>
+              <GlowButton size="xl" variant="gold" className="animate-pulse-glow" sound="click" onClick={onContinue}>
                 📊 Start Mission 2 →
               </GlowButton>
             </div>
           </motion.div>
         ) : (
           <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.5, type: "spring" }}>
-            <GlowButton size="xl" variant="gold" className="animate-pulse-glow" sound="whoosh" onClick={onContinue}>
+            <GlowButton size="xl" variant="gold" className="animate-pulse-glow" sound="click" onClick={onContinue}>
               🏆 See the Final Leaderboard →
             </GlowButton>
           </motion.div>

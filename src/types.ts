@@ -35,6 +35,17 @@ export interface Visitor {
   color: string;
 }
 
+/** One in-game practice worksheet per team. Cells store the RAW text (numbers, words or formulas). */
+export interface SheetState {
+  cells: Record<string, string>;
+  bold: string[];
+  fills: Record<string, string>;
+  currency: string[];
+  borders: boolean;
+  chart: "none" | "column" | "pie";
+  chartTitle: string;
+}
+
 export interface Team {
   id: string;
   name: string;
@@ -64,4 +75,5 @@ export interface GameState {
   mission2Complete: boolean;
   budgetEmergency: boolean;
   muted: boolean;
+  sheets: Record<string, SheetState>;
 }

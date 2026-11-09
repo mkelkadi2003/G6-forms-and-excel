@@ -140,7 +140,7 @@ export const TeamSetup: React.FC<Props> = ({ teams, setTeams, onContinue }) => {
           size="xl"
           variant="lime"
           disabled={teams.length < 2 || teams.some((t) => !t.name.trim())}
-          sound="unlock"
+          sound="click"
           onClick={onContinue}
           className={teams.length >= 2 ? "animate-pulse-glow" : ""}
         >

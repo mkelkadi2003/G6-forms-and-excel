@@ -59,6 +59,12 @@ export const HUD: React.FC<Props> = ({ state, go, toggleMute, restart }) => {
             })}
           </nav>
           <div className="ml-auto flex items-center gap-2">
+            <span
+              className="hidden lg:inline-flex items-center gap-1 rounded-xl px-2.5 py-1.5 text-xs font-extrabold bg-yellow-300/10 border border-yellow-300/40 text-yellow-200"
+              title="A teacher password is required to move to the next step"
+            >
+              🔒 Teacher Lock ON
+            </span>
             <Timer />
             <button
               onClick={toggleMute}

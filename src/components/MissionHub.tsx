@@ -4,7 +4,6 @@ import formsImg from "../assets/mission-forms.png";
 import excelImg from "../assets/mission-excel.png";
 import type { GameState, Screen } from "../types";
 import { rankTeams, totalScore } from "../data";
-import { playSound } from "../sound";
 import { Badge, GlowButton, ProgressBar, SectionTitle } from "./ui";
 
 interface Props {
@@ -72,7 +71,7 @@ const MissionCard: React.FC<MissionCardProps> = ({ number, title, subtitle, soft
         size="lg"
         className="w-full"
         disabled={locked}
-        sound="whoosh"
+        sound="click"
         onClick={onOpen}
       >
         {locked ? "🔒 Complete Mission 1 to unlock" : complete ? "🔁 Open Mission" : "▶ Start Mission"}
@@ -153,11 +152,8 @@ export const MissionHub: React.FC<Props> = ({ state, go }) => {
             size="xl"
             variant="gold"
             className="animate-pulse-glow"
-            sound="fanfare"
-            onClick={() => {
-              playSound("fanfare");
-              go("awards");
-            }}
+            sound="click"
+            onClick={() => go("awards")}
           >
             🎉 Go to the Award Ceremony!
           </GlowButton>
